@@ -49,5 +49,17 @@ return {
 			vim.cmd("stopinsert")
 			vim.cmd("wa") -- Save the file
 		end, { noremap = true, silent = true })
+
+		vim.keymap.set("n", "<D-r>", function()
+			local old = vim.fn.expand("<cword>")
+			local new = vim.fn.input("Replace '" .. old .. "' with: ")
+			if new ~= "" then
+				-- escape search and replacement safely
+				old = vim.fn.escape(old, [[\/.*$^~[]])
+				new = vim.fn.escape(new, [[\/&]])
+
+				vim.cmd(string.format("%%s/\\<%s\\>/%s/g", old, new))
+			end
+		end, { desc = "Replace word under cursor" })
 	end,
 }

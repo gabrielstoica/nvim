@@ -10,7 +10,7 @@ return {
 				"lua_ls",
 				"ts_ls",
 				"prismals",
-				"solidity_ls",
+				"solidity_ls_nomicfoundation",
 				"rust_analyzer",
 			},
 		},
@@ -43,7 +43,23 @@ return {
 				capabilities = capabilities,
 			})
 
-			vim.lsp.enable("solidity_ls_nomicfoundation")
+			-- Solidity LSP setup (official recommended config)
+			local lspconfig = require("lspconfig")
+			local configs = require("lspconfig.configs")
+
+			configs.solidity = {
+				default_config = {
+					cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
+					filetypes = { "solidity" },
+					root_dir = lspconfig.util.find_git_ancestor,
+					single_file_support = true,
+				},
+			}
+
+			lspconfig.solidity.setup({ capabilities = capabilities })
+
+			-- Disable solc LSP (conflicts with nomicfoundation server)
+			vim.lsp.config.solc = { filetypes = {} }
 
 			-- Displays the LSP diagnostic inline
 			vim.diagnostic.config({ virtual_text = false, virtual_lines = { current_line = true } })

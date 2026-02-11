@@ -6,8 +6,20 @@ return {
 	config = function()
 		local null_ls = require("null-ls")
 
+		local forge_fmt = {
+			name = "forge_fmt",
+			method = null_ls.methods.FORMATTING,
+			filetypes = { "solidity" },
+			generator = null_ls.formatter({
+				command = "forge",
+				args = { "fmt", "--raw", "-" },
+				to_stdin = true,
+			}),
+		}
+
 		null_ls.setup({
 			sources = {
+				forge_fmt,
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettier.with({
 					condition = function(utils)

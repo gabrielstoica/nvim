@@ -53,6 +53,7 @@ Format on save is enabled by default.
 - **Catppuccin** - Macchiato color theme
 - **Lualine** - Enhanced status line
 - **Alpha** - Startup dashboard
+- **nvim-ufo** - Fold code sections
 
 ## Key Bindings
 
@@ -74,6 +75,8 @@ Leader key: `<Space>`
 | `gd` | Go to definition |
 | `<leader>ca` | Code actions |
 | `<leader>e` | Expand diagnostic |
+| `zc` | Fold code sections |
+| `zo` | Unfold code sections |
 
 ### Navigation
 
@@ -106,6 +109,7 @@ Leader key: `<Space>`
         ├── alpha.lua
         ├── lualine.lua
         ├── neo-tree.lua
+        ├── nvim-ufo.lua
         ├── gitsigns.lua
         ├── treesitter.lua
         ├── none-ls.lua

@@ -10,9 +10,9 @@ Full LSP support with automatic server installation via Mason:
 
 - **Lua** - lua_ls
 - **TypeScript/JavaScript** - ts_ls
-- **Prisma** - prismals
-- **Solidity** - solidity_ls
+- **Solidity** - solidity, solidity_ls_nomicfoundation
 - **Rust** - rust_analyzer
+- **Prisma** - prismals
 
 LSP features include hover documentation, go-to-definition, code actions, and inline diagnostics.
 
@@ -30,6 +30,7 @@ Automatic code formatting and linting through none-ls:
 
 - **Lua** - StyLua
 - **JavaScript/TypeScript** - Prettier (with .prettierrc detection)
+- **Solidity** - Forge fmt
 - **JSON** - Fixjson
 - **TOML** - Taplo
 - **Rust** - Rustfmt
@@ -66,6 +67,7 @@ Leader key: `<Space>`
 | `<C-d>` | Half-page down (centered) |
 | `<C-u>` | Half-page up (centered) |
 | `<Cmd-s>` | Format and save |
+| `<D-r>` | Replace all occurrences of a word in the current file |
 
 ### LSP
 

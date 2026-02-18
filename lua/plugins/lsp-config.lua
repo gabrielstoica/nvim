@@ -21,6 +21,22 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+			vim.lsp.config.ts_ls = {
+				init_options = {
+					preferences = {
+						disableSuggestions = false,
+					},
+				},
+				settings = {
+					typescript = {
+						format = { enable = false },
+					},
+					javascript = {
+						format = { enable = false },
+					},
+				},
+			}
+
 			vim.lsp.config.rust_analyzer = {
 				settings = {
 					["rust-analyzer"] = {

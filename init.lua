@@ -40,6 +40,12 @@ vim.keymap.set("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
 -- Optionally, map Ctrl + s to save in insert mode (returns to normal mode and saves)
 vim.keymap.set("i", "<D-s>", "<Esc>:w<CR>", { noremap = true, silent = true })
 
+-- Do not copy (yank) to the clipboard on delete
+vim.keymap.set({ "n", "v" }, "d", '"_d', { noremap = true })
+vim.keymap.set({ "n", "v" }, "c", '"_c', { noremap = true })
+-- Specifically for deleting lines
+vim.keymap.set("n", "dd", '"_dd', { noremap = true })
+
 require("vim-cmd")
 
 -- Setup lazy.nvim

@@ -12,8 +12,5 @@ return {
 				return { "treesitter", "indent" }
 			end,
 		})
-
-		vim.keymap.set("n", "zc", require("ufo").openAllFolds)
-		vim.keymap.set("n", "zo", require("ufo").closeAllFolds)
 	end,
 }
